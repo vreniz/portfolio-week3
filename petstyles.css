@@ -1,0 +1,744 @@
+/* ============================================================
+   petstyles.css — Página de Mascotas
+   ============================================================ */
+
+/* ---- Global design variables ---- */
+:root {
+    --color-bg: #F7F4EE;
+    --color-bg-alt: #EDEAE3;
+    --color-surface: #FFFFFF;
+    --color-ink: #1A1612;
+    --color-ink-light: #6B6560;
+    --color-accent: #C0572B;
+    --color-accent-soft: #F0C9B5;
+    --color-pets: #3D6B4F;
+    --color-pets-light: #C5DBC9;
+
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', 'Helvetica Neue', sans-serif;
+
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 7rem;
+
+    --radius-sm: 6px;
+    --radius-md: 14px;
+    --radius-lg: 24px;
+    --shadow-card: 0 4px 24px rgba(26, 22, 18, 0.10);
+    --shadow-img: 0 8px 32px rgba(26, 22, 18, 0.18);
+
+    --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    line-height: 1.7;
+    font-weight: 400;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(192, 87, 43, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(184, 134, 11, 0.04) 0%, transparent 50%);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: clamp(2.8rem, 6vw, 5rem);
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h3 {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+}
+
+em {
+    font-style: italic;
+    color: var(--color-accent);
+}
+
+/* ============================================================
+   HEADER & NAVIGATION — Flexbox
+   display: flex on .header-inner distributes logo and nav.
+   align-items: center vertically centers header content.
+   justify-content: space-between pushes logo left, nav right.
+   ============================================================ */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(247, 244, 238, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(26, 22, 18, 0.08);
+    padding: var(--space-sm) 0;
+}
+
+.header-inner {
+    /* TASK 2: Header with Flexbox */
+    /* display: flex turns header into a flex container */
+    display: flex;
+    /* align-items centers logo and nav links vertically */
+    align-items: center;
+    /* justify-content distributes space between logo and nav */
+    justify-content: space-between;
+    gap: var(--space-md);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+}
+
+.logo,
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    text-decoration: none;
+    color: var(--color-ink);
+}
+
+.logo-initial {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background: var(--color-ink);
+    color: var(--color-bg);
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.logo-name {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.main-nav ul {
+    /* Flexbox: distributes nav links evenly in a row */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.main-nav a {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-ink-light);
+    letter-spacing: 0.02em;
+    padding: 4px 0;
+    position: relative;
+    transition: color var(--transition);
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-accent);
+    transition: width var(--transition);
+}
+
+.main-nav a:hover {
+    color: var(--color-accent);
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+/* Back link on pets page */
+.nav-back {
+    color: var(--color-pets) !important;
+    font-weight: 500;
+}
+
+.nav-back:hover {
+    color: var(--color-pets) !important;
+}
+
+.nav-back::after {
+    background: var(--color-pets) !important;
+}
+
+/* ============================================================
+   PETS HERO
+   ============================================================ */
+.pets-hero {
+    background: linear-gradient(135deg, var(--color-pets) 0%, #2a4d38 100%);
+    color: white;
+    padding: var(--space-xl) var(--space-md);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pets-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+}
+
+.pets-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    animation: fadeUp 0.8s ease both;
+}
+
+.hero-label {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    background: var(--color-accent-soft);
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: var(--space-sm);
+}
+
+.pets-hero .hero-label {
+    background: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-title {
+    margin-bottom: var(--space-sm);
+    color: var(--color-ink);
+}
+
+.pets-hero-title {
+    color: white;
+}
+
+.pets-hero-title em {
+    color: var(--color-pets-light);
+}
+
+.hero-sub {
+    font-size: 1.15rem;
+    color: var(--color-ink-light);
+    margin-bottom: var(--space-md);
+    max-width: 480px;
+}
+
+.pets-hero .hero-sub {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Decorative floating paws */
+.paw-deco {
+    position: absolute;
+    bottom: var(--space-sm);
+    right: var(--space-md);
+    font-size: 1.8rem;
+    opacity: 0.2;
+    display: flex;
+    gap: var(--space-xs);
+    transform: rotate(-15deg);
+    pointer-events: none;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn-primary {
+    display: inline-block;
+    background: var(--color-ink);
+    color: var(--color-bg);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 14px 28px;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--color-ink);
+    cursor: pointer;
+    transition: background var(--transition), color var(--transition), transform var(--transition);
+}
+
+.btn-primary:hover {
+    background: transparent;
+    color: var(--color-ink);
+    transform: translateY(-2px);
+}
+
+.btn-back {
+    background: var(--color-pets);
+    border-color: var(--color-pets);
+    color: white;
+}
+
+.btn-back:hover {
+    background: transparent;
+    color: white;
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* ============================================================
+   GENERIC SECTIONS
+   ============================================================ */
+/* Generous padding for large screens */
+.section {
+    padding: var(--space-xl) var(--space-lg);
+}
+
+.section:nth-child(even) {
+    background-color: var(--color-bg-alt);
+}
+
+/* Centers content, limits width on 24"+ screens */
+.section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--space-xs);
+}
+
+.section-title {
+    margin-bottom: var(--space-md);
+    color: var(--color-ink);
+}
+
+/* ============================================================
+   SECTION: PETS GALLERY — Flexbox + Grid (Task 4)
+
+   Two distinct layouts are used intentionally:
+
+   1. .pets-flex-row — Flexbox
+      display: flex + flex-wrap: wrap distributes cards
+      in rows. Cards grow/shrink with flex: 1 1 280px.
+      justify-content: flex-start aligns them left.
+
+   2. .pets-grid — CSS Grid mosaic
+      display: grid + grid-template-columns creates a
+      3-column mosaic. .pet-card--wide spans 2 columns
+      via grid-column, making cards different widths.
+   ============================================================ */
+
+/* Label above each layout */
+.gallery-layout-label {
+    font-family: 'DM Sans', monospace;
+    font-size: 0.78rem;
+    color: var(--color-accent);
+    letter-spacing: 0.06em;
+    margin: var(--space-md) 0 var(--space-xs);
+    opacity: 0.7;
+}
+
+/* ----------------------------------------------------------
+   LAYOUT 1: Flexbox row
+   display: flex — turns container into a flex container
+   flex-wrap: wrap — cards wrap to next row when needed
+   justify-content: flex-start — cards align from the left
+   gap — space between cards
+   ---------------------------------------------------------- */
+.pets-flex-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+/* Each card in the flex row takes equal width */
+.pets-flex-row .pet-card {
+    flex: 1 1 280px;
+    max-width: calc(33.333% - var(--space-md));
+}
+
+/* ----------------------------------------------------------
+   LAYOUT 2: CSS Grid mosaic
+   display: grid — turns container into a grid container
+   grid-template-columns: repeat(3, 1fr) — 3 equal columns
+   gap — space between grid cells
+   ---------------------------------------------------------- */
+.pets-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+    margin-top: 0;
+}
+
+/* Wide card spans 2 columns in the grid mosaic */
+.pet-card--wide {
+    grid-column: span 2;
+}
+
+/* ----------------------------------------------------------
+   Shared card styles (used in both layouts)
+   Each card uses Flexbox internally for vertical flow:
+   flex-direction: column stacks image and info vertically
+   ---------------------------------------------------------- */
+.pet-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.pet-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-img);
+}
+
+/* Image area — flex-shrink: 0 prevents image from collapsing */
+.pet-image-wrap {
+    position: relative;
+    overflow: hidden;
+    height: 260px;
+    flex-shrink: 0;
+}
+
+.pet-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.pet-card:hover .pet-image-wrap img {
+    transform: scale(1.06);
+}
+
+.pet-badge {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    background: var(--color-pets);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.pet-badge--dog {
+    background: #8B5A2B;
+}
+
+.pet-badge--rabbit {
+    background: #6B4C8F;
+}
+
+/* Info area: flex: 1 lets it fill remaining card height */
+.pet-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: var(--space-sm) var(--space-sm) var(--space-md);
+}
+
+.pet-name {
+    font-size: 1.5rem;
+    margin-bottom: 2px;
+    color: var(--color-ink);
+}
+
+.pet-age {
+    font-size: 0.8rem;
+    color: var(--color-pets);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-xs);
+}
+
+.pet-desc {
+    font-size: 0.9rem;
+    color: var(--color-ink-light);
+    line-height: 1.7;
+    margin-bottom: var(--space-sm);
+    flex: 1;
+}
+
+/* Tags: Flexbox row with wrap so they flow naturally */
+.pet-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto;
+}
+
+.pet-tags li {
+    background: var(--color-pets-light);
+    color: var(--color-pets);
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    transition: background var(--transition), color var(--transition);
+}
+
+.pet-tags li:hover {
+    background: var(--color-pets);
+    color: white;
+}
+
+/* ============================================================
+   SECTION: FUN FACTS
+   ============================================================ */
+.section-curiosidades {
+    background: var(--color-pets) !important;
+    color: white;
+}
+
+.section-curiosidades .section-tag {
+    color: var(--color-pets-light);
+}
+
+.section-curiosidades .section-title {
+    color: white;
+}
+
+.curiosidades-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+}
+
+.curiosidades-list li {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md);
+    padding: var(--space-sm);
+    transition: background var(--transition);
+}
+
+.curiosidades-list li:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.curio-icon {
+    font-size: 1.8rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.curiosidades-list p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+    background: var(--color-ink);
+    color: var(--color-bg);
+    padding: var(--space-md);
+}
+
+.footer-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+}
+
+.footer-copy {
+    font-size: 0.875rem;
+    color: rgba(247, 244, 238, 0.5);
+}
+
+.pets-footer {
+    background: #1e3829;
+    text-align: center;
+}
+
+.pets-footer .footer-inner {
+    justify-content: center;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.pets-footer .footer-copy {
+    color: rgba(197, 219, 201, 0.7);
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================================
+   RESPONSIVE
+   Task 2 spec:
+   - Tablet (max-width: 1024px): gallery 3 columns
+   - Mobile (max-width: 768px): gallery 2 columns, nav column
+   - Small mobile (max-width: 480px): gallery 1 column
+   ============================================================ */
+
+/* Tablet: gallery keeps 3 columns as required by spec */
+@media (max-width: 1024px) {
+    .pets-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Wide card still spans on tablet */
+    .pet-card--wide {
+        grid-column: span 2;
+    }
+
+    .pets-flex-row .pet-card {
+        flex: 1 1 260px;
+        max-width: calc(50% - var(--space-md));
+    }
+}
+
+/* Mobile: gallery reduces to 2 columns, nav becomes column */
+@media (max-width: 768px) {
+    :root {
+        --space-lg: 2.5rem;
+        --space-xl: 4rem;
+    }
+
+    /* Header: stack vertically */
+    .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-xs);
+        padding: 0 var(--space-md);
+    }
+
+    /* Nav: column direction on mobile */
+    .main-nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-xs);
+        flex-wrap: wrap;
+    }
+
+    /* Gallery: 2 columns on mobile as required by spec */
+    .pets-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Wide card resets on mobile */
+    .pet-card--wide {
+        grid-column: span 1;
+    }
+
+    /* Flex row: single column on mobile */
+    .pets-flex-row {
+        flex-direction: column;
+    }
+
+    .pets-flex-row .pet-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .section {
+        padding: var(--space-xl) var(--space-md);
+    }
+}
+
+/* Small mobile: single column for everything */
+@media (max-width: 480px) {
+    .pets-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pets-flex-row {
+        flex-direction: column;
+    }
+}

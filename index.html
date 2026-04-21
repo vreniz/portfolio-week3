@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal portfolio of Vanessa Fontalvo — Frontend Web Developer">
+  <meta name="author" content="Vanessa Fontalvo">
+  <title>Vanessa Fontalvo — Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+  <!-- ===================== ENCABEZADO Y NAVEGACIÓN ===================== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-initial">VF</span>
+        <span class="logo-name">vanessa-fontalvo.dev</span>
+      </div>
+      <nav class="main-nav" aria-label="main navigation">
+        <ul>
+          <li><a href="#home" class="nav-home"><ion-icon name="home-outline"></ion-icon> Home</a></li>
+          <li><a href="#sobre-mi" class="nav-about"><ion-icon name="person-outline"></ion-icon> About me</a></li>
+          <li><a href="#proyectos" class="nav-projects"><ion-icon name="code-slash-outline"></ion-icon> Projects</a>
+          </li>
+          <li><a href="#contacto" class="nav-contact"><ion-icon name="mail-outline"></ion-icon> Contact</a></li>
+          <li><a href="mascotas.html" class="nav-highlight"><ion-icon name="paw-outline"></ion-icon> My Pets</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Partículas de fondo — cubre toda la página debajo del nav -->
+  <div id="hero-particles" aria-hidden="true"></div>
+
+  <!-- ===================== HERO / PRESENTACIÓN ===================== -->
+  <section class="hero-wrapper" id="home">
+    <div class="hero">
+      <div class="hero-content">
+        <p class="hero-code-deco"><span class="hero-kw">const</span> <span class="hero-var">developer</span> <span
+            class="hero-dim">=</span> <span class="hero-str">"Vanessa Fontalvo"</span><span class="hero-dim">;</span>
+        </p>
+        <p class="hero-label">Welcome to my portfolio</p>
+        <h1 class="hero-title">
+          Design &amp;<br>
+          <em>Development</em><br>
+          with purpose.
+        </h1>
+        <p class="hero-sub">I build <span class="hero-sub-blue">digital experiences</span> that connect <span
+            class="hero-sub-lavender">people</span> with <span class="hero-sub-pink">ideas</span>.</p>
+        <div class="hero-actions">
+          <a href="#proyectos" class="btn-primary">View my projects ↓</a>
+          <p class="hero-stats">
+            <span class="stat-num stat-purple">06</span> projects &nbsp;·&nbsp;
+            <span class="stat-num stat-green">04</span> months &nbsp;·&nbsp;
+            <span class="stat-num stat-pink">01</span> degree
+          </p>
+        </div>
+        <div class="hero-scroll-hint" aria-hidden="true">
+          <div class="scroll-line"></div>
+          <div class="scroll-mouse">
+            <div class="scroll-dot"></div>
+          </div>
+          <span class="scroll-label">scroll</span>
+        </div>
+      </div>
+      <div class="hero-deco" aria-hidden="true">
+        <div class="deco-circle"></div>
+        <div class="deco-line"></div>
+      </div>
+
+      <!-- Tarjeta GitHub + Status en vivo -->
+      <div class="hero-card">
+
+        <!-- Header estilo GitHub -->
+        <div class="hc-banner"></div>
+        <div class="hc-profile">
+          <div class="hc-avatar">VF</div>
+          <div class="hc-info">
+            <div class="hc-name">Vanessa Fontalvo</div>
+            <div class="hc-handle">vreniz · she/her</div>
+          </div>
+        </div>
+        <div class="hc-bio">Frontend Developer &amp; Systems Engineer. Building cool stuff with React &amp; CSS.</div>
+
+        <!-- Pills de skills -->
+        <div class="hc-pills">
+          <span class="hc-pill pill-blue">React</span>
+          <span class="hc-pill pill-pink">CSS3</span>
+          <span class="hc-pill pill-yellow">HTML5</span>
+          <span class="hc-pill pill-orange">JS ES6+</span>
+          <span class="hc-pill pill-lavender">Vite</span>
+          <span class="hc-pill pill-green">Git</span>
+        </div>
+
+        <div class="hc-divider"></div>
+
+        <!-- Reloj en vivo -->
+        <div class="hc-clock-wrap">
+          <div class="hc-clock" id="hero-clock">--:--:--</div>
+          <div class="hc-timezone">Barranquilla · UTC-5</div>
+        </div>
+
+        <div class="hc-divider"></div>
+
+        <!-- Status -->
+        <div class="hc-status">
+          <div class="hc-status-dot"></div>
+          <div>
+            <div class="hc-status-title">Available for work</div>
+            <div class="hc-status-sub">Open to freelance &amp; full-time</div>
+          </div>
+        </div>
+
+        <div class="hc-meta">
+          <div class="hc-meta-row">
+            <span class="hc-meta-key">Current focus</span>
+            <span class="hc-meta-val val-lavender">Frontend Dev</span>
+          </div>
+          <div class="hc-meta-row">
+            <span class="hc-meta-key">Location</span>
+            <span class="hc-meta-val val-blue">Barranquilla, CO</span>
+          </div>
+          <div class="hc-meta-row">
+            <span class="hc-meta-key">Response time</span>
+            <span class="hc-meta-val val-green">within 24h</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <main>
+
+    <!-- ===================== SECCIÓN: SOBRE MÍ ===================== -->
+    <section id="sobre-mi" class="section section-about">
+      <div class="section-inner">
+        <span class="section-tag">01 — About me</span>
+        <h2 class="section-title">Hello, I'm Vanessa.</h2>
+        <div class="terminal-box">
+          <div class="terminal-topbar">
+            <span class="terminal-dot dot-red"></span>
+            <span class="terminal-dot dot-yellow"></span>
+            <span class="terminal-dot dot-green"></span>
+            <span class="terminal-filename">about_me.txt</span>
+          </div>
+          <div class="terminal-body">
+            <p class="terminal-text">
+              <span class="terminal-prompt">$ </span><span id="typed-about"></span>
+            </p>
+          </div>
+        </div>
+        <ul class="skills-list" aria-label="technical skills">
+          <li>HTML5 &amp; Semantic Markup</li>
+          <li>CSS3 &amp; Responsive Design</li>
+          <li>JavaScript ES6+</li>
+          <li>Web Accessibility</li>
+          <li>Git &amp; Version Control</li>
+        </ul>
+      </div>
+      <div class="about-image-wrap">
+        <div class="about-img-tag-wrap">
+          <span class="fake-tag fake-tag-open">
+            <span class="fake-tag-bracket">&lt;</span><span class="fake-tag-name">img</span> <span
+              class="fake-tag-attr">src</span><span class="fake-tag-eq">=</span><span class="fake-tag-val">"Vanessa
+              Fontalvo.png"</span> <span class="fake-tag-bracket">/&gt;</span>
+          </span>
+          <div class="about-image-frame">
+            <img src="img/blur.png" alt="Vanessa Fontalvo" class="about-photo">
+          </div>
+          <span class="fake-tag fake-tag-close">
+            <span class="fake-tag-bracket">&lt;/</span><span class="fake-tag-name">img</span><span
+              class="fake-tag-bracket">&gt;</span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECCIÓN: PROYECTOS ===================== -->
+    <section id="proyectos" class="section section-projects">
+      <div class="section-inner">
+        <span class="section-tag">02 — Projects</span>
+        <h2 class="section-title">What I have built.</h2>
+
+        <ul class="projects-list">
+
+          <!-- Proyecto 01 — WebCloud Lab -->
+          <li class="project-card">
+            <div class="project-number">
+              <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+            </div>
+            <div class="project-flip">
+              <div class="project-front">
+                <img src="img/webcloud.png" alt="WebCloud Lab preview" class="project-preview-img"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="project-preview-placeholder" style="display:none">{ WC }</div>
+                <div class="project-code-block-wrap">
+                  <div class="project-code-block">
+                    <span class="code-tag-open">&lt;</span><span class="code-tag-name">h3</span><span
+                      class="code-tag-open">&gt;</span><br>
+                    &nbsp;&nbsp;<span class="code-title"><span class="code-underline">WebCloud Lab</span></span><br>
+                    <span class="code-tag-close">&lt;/</span><span class="code-tag-name">h3</span><span
+                      class="code-tag-close">&gt;</span>
+                  </div>
+                </div>
+              </div>
+              <div class="project-back">
+                <div class="project-info">
+                  <h3><a href="https://dem2.github.io/WebCloud-Lab/" target="_blank" rel="noopener"
+                      class="project-link">WebCloud Lab</a></h3>
+                  <p>Business landing page built with React + Vite. Clean, fast and fully responsive.</p>
+                  <span class="project-tech">// React · Vite · CSS</span>
+                </div>
+                <a href="https://dem2.github.io/WebCloud-Lab/" target="_blank" rel="noopener"
+                  class="project-back-cta">View project →</a>
+              </div>
+            </div>
+          </li>
+
+          <!-- Proyecto 02 — Puzzle 15 -->
+          <li class="project-card">
+            <div class="project-number">
+              <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+            </div>
+            <div class="project-flip">
+              <div class="project-front">
+                <img src="img/puzzle.png" alt="Puzzle 15 preview" class="project-preview-img"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="project-preview-placeholder" style="display:none">{ P15 }</div>
+                <div class="project-code-block-wrap">
+                  <div class="project-code-block">
+                    <span class="code-tag-open">&lt;</span><span class="code-tag-name">h3</span><span
+                      class="code-tag-open">&gt;</span><br>
+                    &nbsp;&nbsp;<span class="code-title"><span class="code-underline">Puzzle 15</span></span><br>
+                    <span class="code-tag-close">&lt;/</span><span class="code-tag-name">h3</span><span
+                      class="code-tag-close">&gt;</span>
+                  </div>
+                </div>
+              </div>
+              <div class="project-back">
+                <div class="project-info">
+                  <h3><a href="https://vreniz.github.io/puzzlegamevane/" target="_blank" rel="noopener"
+                      class="project-link">Puzzle 15</a></h3>
+                  <p>Classic sliding puzzle game — 15 tiles, pure vanilla web tech, no frameworks.</p>
+                  <span class="project-tech">// HTML · CSS · JavaScript</span>
+                </div>
+                <a href="https://vreniz.github.io/puzzlegamevane/" target="_blank" rel="noopener"
+                  class="project-back-cta">View project →</a>
+              </div>
+            </div>
+          </li>
+
+          <!-- Proyecto 03 — Marketplace -->
+          <li class="project-card">
+            <div class="project-number">
+              <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+            </div>
+            <div class="project-flip">
+              <div class="project-front">
+                <img src="img/marketplace.png" alt="Marketplace preview" class="project-preview-img"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="project-preview-placeholder" style="display:none">{ MKT }</div>
+                <div class="project-code-block-wrap">
+                  <div class="project-code-block">
+                    <span class="code-tag-open">&lt;</span><span class="code-tag-name">h3</span><span
+                      class="code-tag-open">&gt;</span><br>
+                    &nbsp;&nbsp;<span class="code-title"><span class="code-underline">Marketplace</span></span><br>
+                    <span class="code-tag-close">&lt;/</span><span class="code-tag-name">h3</span><span
+                      class="code-tag-close">&gt;</span>
+                  </div>
+                </div>
+              </div>
+              <div class="project-back">
+                <div class="project-info">
+                  <h3><a href="https://marketplace-react-js-updated.vercel.app/" target="_blank" rel="noopener"
+                      class="project-link">Marketplace</a></h3>
+                  <p>Full e-commerce marketplace with product catalog, cart and modern UI.</p>
+                  <span class="project-tech">// React · Vite · Vercel</span>
+                </div>
+                <a href="https://marketplace-react-js-updated.vercel.app/" target="_blank" rel="noopener"
+                  class="project-back-cta">View project →</a>
+              </div>
+            </div>
+          </li>
+          <!-- Proyecto 04 — EinfachDeutsch -->
+          <li class="project-card">
+            <div class="project-number">
+              <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+            </div>
+            <div class="project-flip">
+              <div class="project-front">
+                <img src="img/einfachdeutsch.png" alt="Einfach Deutsch preview" class="project-preview-img"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="project-preview-placeholder" style="display:none">{ EINF }</div>
+                <div class="project-code-block-wrap">
+                  <div class="project-code-block">
+                    <span class="code-tag-open">&lt;</span><span class="code-tag-name">h3</span><span
+                      class="code-tag-open">&gt;</span><br>
+                    &nbsp;&nbsp;<span class="code-title"><span class="code-underline">EinfachDeutsch</span></span><br>
+                    <span class="code-tag-close">&lt;/</span><span class="code-tag-name">h3</span><span
+                      class="code-tag-close">&gt;</span>
+                  </div>
+                </div>
+              </div>
+              <div class="project-back">
+                <div class="project-info">
+                  <h3><a href="https://einfachdeutsch0.pages.dev/" target="_blank" rel="noopener"
+                      class="project-link">EinfachDeutsch</a></h3>
+                  <p>German language learning platform with interactive exercises and resources.</p>
+                  <span class="project-tech">// React · Vite · Typescript</span>
+                </div>
+                <a href="https://einfachdeutsch0.pages.dev/" target="_blank" rel="noopener"
+                  class="project-back-cta">View project →</a>
+              </div>
+            </div>
+          </li>
+
+          <!-- Proyecto 04 — My Pets Page -->
+          <li class="project-card">
+            <div class="project-number">
+              <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+            </div>
+            <div class="project-flip">
+              <div class="project-front">
+                <img src="img/pets.png" alt="My Pets Page preview" class="project-preview-img"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="project-preview-placeholder" style="display:none">{ 🐾 }</div>
+                <div class="project-code-block-wrap">
+                  <div class="project-code-block">
+                    <span class="code-tag-open">&lt;</span><span class="code-tag-name">h3</span><span
+                      class="code-tag-open">&gt;</span><br>
+                    &nbsp;&nbsp;<span class="code-title"><span class="code-underline">My Pets Page 🐾</span></span><br>
+                    <span class="code-tag-close">&lt;/</span><span class="code-tag-name">h3</span><span
+                      class="code-tag-close">&gt;</span>
+                  </div>
+                </div>
+              </div>
+              <div class="project-back">
+                <div class="project-info">
+                  <h3><a href="mascotas.html" class="project-link">My Pets Page 🐾</a></h3>
+                  <p>Gallery dedicated to my adorable pets with descriptions and photos.</p>
+                  <span class="project-tech">// HTML5 · CSS · Responsive</span>
+                </div>
+                <a href="mascotas.html" class="project-back-cta">View project →</a>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== SECCIÓN: CONTACTO ===================== -->
+    <section id="contacto" class="section section-contact">
+      <div class="section-inner">
+        <span class="section-tag">03 — Contact</span>
+        <h2 class="section-title">Let's talk.</h2>
+        <p class="contact-intro">
+          Do you have a project in mind or just want to say hello? Send me a message and I'll get back to you soon.
+        </p>
+        <form class="contact-form" action="#" method="post">
+
+          <div class="form-group">
+            <label for="nombre">Full Name</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Your name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="mensaje">Message</label>
+            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Tell me about your project..."
+              required></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary btn-submit">Send Message →</button>
+
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== PARTÍCULAS ===================== -->
+  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/slim@3.3.0/tsparticles.slim.bundle.min.js"></script>
+  <script src="particles.js"></script>
+
+  <!-- ===================== PIE DE PÁGINA ===================== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-copy">© 2026 Vanessa Fontalvo. Made with ♥ and lots of coffee.</p>
+      <a href="mascotas.html" class="footer-link">🐾 Meet My Pets</a>
+    </div>
+  </footer>
+
+  <!-- ===================== TYPED.JS — About Me ===================== -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script src="typed.js"></script>
+
+  <!-- Live clock -->
+  <script src="clock.js"></script>
+
+  <!-- ===================== MAIN INTERACTIVITY — script.js ===================== -->
+  <script src="script.js"></script>
+
+</body>
+
+</html>
