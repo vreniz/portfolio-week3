@@ -242,14 +242,7 @@ em {
 .pets-hero-content {
     position: relative;
     z-index: 2;
-    width: 100%;
     max-width: 600px;
-    /* Center all inline/inline-flex children (h1, p, button) */
-    text-align: center;
-    /* Stack children in a column and center them horizontally */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     animation: fadeUp 0.8s ease both;
 }
 
@@ -293,10 +286,6 @@ em {
 
 .pets-hero .hero-sub {
     color: rgba(255, 255, 255, 0.8);
-    /* Ensure the max-width paragraph stays centered inside the flex column */
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 /* Decorative floating paws */
@@ -667,53 +656,6 @@ em {
 }
 
 /* ============================================================
-   HAMBURGER BUTTON — base styles (hidden on desktop/tablet)
-   Moved here intentionally: the base rule (display: none) must
-   come BEFORE the @media block that overrides it to display: flex.
-   If it appears after, the media query rule gets overridden and
-   the button never shows on mobile.
-   ============================================================ */
-.hamburger {
-    display: none;
-    /* hidden by default on desktop */
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    width: 36px;
-    height: 36px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
-    flex-shrink: 0;
-    z-index: 110;
-}
-
-.hamburger span {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background: var(--color-ink);
-    border-radius: 2px;
-    transition: transform 0.25s ease, opacity 0.25s ease;
-    transform-origin: center;
-}
-
-/* Animated X when open */
-.hamburger.is-open span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-}
-
-.hamburger.is-open span:nth-child(2) {
-    opacity: 0;
-    transform: scaleX(0);
-}
-
-.hamburger.is-open span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
-}
-
-/* ============================================================
    RESPONSIVE BREAKPOINTS
    - Desktop (≥ 1025px):  flex-row 3 cols, grid 3 cols
    - Tablet  (768–1024px): flex-row 3 cols, grid 3 cols (wide card spans 2)
@@ -891,7 +833,7 @@ em {
     opacity: 0;
     pointer-events: none;
     transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
-        opacity 0.3s ease;
+                opacity 0.3s ease;
 }
 
 .welcome-toast.toast-visible {
@@ -929,6 +871,36 @@ em {
     text-align: center;
 }
 
+/* ── Hamburger menu ─────────────────────────────────────────── */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 2px;
+    flex-shrink: 0;
+    z-index: 110;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--color-ink);
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    transform-origin: center;
+}
+
+.hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
 /* Toggle button — "Did you know?" */
 .btn-toggle-fact {
     display: inline-flex;
@@ -949,7 +921,7 @@ em {
     /* Glow shadow to make it pop on the dark hero */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     transition: background var(--transition), color var(--transition),
-        box-shadow var(--transition), transform 0.2s ease;
+                box-shadow var(--transition), transform 0.2s ease;
 }
 
 .btn-toggle-fact:hover {
@@ -987,12 +959,9 @@ em {
     align-items: center;
     justify-content: center;
     gap: 6px;
-    align-self: center;
-    /* center within the flex column, no stretching */
-    width: auto;
-    /* size driven by content + padding only */
-    white-space: nowrap;
-    /* never wraps to a second line */
+    align-self: center;          /* center within the flex column, no stretching */
+    width: auto;                 /* size driven by content + padding only */
+    white-space: nowrap;         /* never wraps to a second line */
     background: none;
     border: 1.5px solid var(--color-pets-light);
     border-radius: 20px;
@@ -1004,7 +973,7 @@ em {
     cursor: pointer;
     margin-top: var(--space-sm);
     transition: border-color var(--transition), color var(--transition),
-        background var(--transition), transform 0.15s ease;
+                background var(--transition), transform 0.15s ease;
 }
 
 .pet-like-btn:hover {
@@ -1022,21 +991,10 @@ em {
 
 /* Heart bounce animation when liked */
 @keyframes heartBounce {
-    0% {
-        transform: scale(1);
-    }
-
-    30% {
-        transform: scale(1.45);
-    }
-
-    60% {
-        transform: scale(0.9);
-    }
-
-    100% {
-        transform: scale(1);
-    }
+    0%   { transform: scale(1); }
+    30%  { transform: scale(1.45); }
+    60%  { transform: scale(0.9); }
+    100% { transform: scale(1); }
 }
 
 .pet-like-btn.liked .like-heart {

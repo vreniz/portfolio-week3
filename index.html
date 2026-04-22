@@ -24,7 +24,12 @@
         <span class="logo-initial">VF</span>
         <span class="logo-name">vanessa-fontalvo.dev</span>
       </div>
-      <nav class="main-nav" aria-label="main navigation">
+      <!-- Hamburger toggle (mobile only) -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false"
+        aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" id="main-nav" aria-label="main navigation">
         <ul>
           <li><a href="#home" class="nav-home"><ion-icon name="home-outline"></ion-icon> Home</a></li>
           <li><a href="#sobre-mi" class="nav-about"><ion-icon name="person-outline"></ion-icon> About me</a></li>
@@ -413,6 +418,28 @@
 
   <!-- ===================== MAIN INTERACTIVITY — script.js ===================== -->
   <script src="script.js"></script>
+
+  <!-- Hamburger menu toggle -->
+  <script>
+    (function () {
+      var btn = document.getElementById('hamburger');
+      var nav = document.getElementById('main-nav');
+      if (!btn || !nav) return;
+      btn.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('nav-open');
+        btn.classList.toggle('is-open', isOpen);
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+      // Close nav when a link is tapped (smooth UX on mobile)
+      nav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          nav.classList.remove('nav-open');
+          btn.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+  </script>
 
 </body>
 

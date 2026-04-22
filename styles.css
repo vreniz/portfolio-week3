@@ -1625,22 +1625,66 @@ em {
 }
 
 /* ============================================================
+   HAMBURGER MENU — Mobile nav toggle
+   Hidden on desktop, shown on mobile via media query.
+   Clicking it toggles .nav-open on .header-inner.
+   ============================================================ */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  flex-shrink: 0;
+  z-index: 110;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--color-ink);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  transform-origin: center;
+}
+
+/* Animate to X when open */
+.hamburger.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.is-open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ============================================================
    RESPONSIVE BREAKPOINTS
-   Three breakpoints as required by Task 2:
-   - Desktop (default): 3+ columns for projects
-   - Tablet (max-width: 1024px): 2 columns for projects, 3 for gallery
-   - Mobile (max-width: 768px): 1 column for projects, nav as column
-   - Small mobile (max-width: 480px): 1 column for everything
+   - Desktop (≥ 1025px): 3+ columns for projects
+   - Tablet large (769px–1024px): 2 columns for projects
+   - Tablet small / iPad Mini (768px): still 2 columns
+   - Mobile (< 768px): hamburger nav, 1 column projects
+   - Small mobile (≤ 480px): 1 column for everything
    ============================================================ */
 
 /* ----------------------------------------------------------
    TABLET — max-width: 1024px
-   Projects: 2 columns
-   Gallery: 3 columns (handled in petstyles.css)
+   Covers iPad Air (820px) and iPad Mini (768px).
+   Projects: 2 columns throughout this range.
    ---------------------------------------------------------- */
 @media (max-width: 1024px) {
 
-  /* Projects: 2 columns on tablet */
+  /* Projects: 2 columns on all tablet sizes */
   .projects-list {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1657,39 +1701,92 @@ em {
 }
 
 /* ----------------------------------------------------------
-   MOBILE — max-width: 768px
-   Nav: column layout
-   Projects: 1 column
-   Gallery: 2 columns (handled in petstyles.css)
+   MOBILE — max-width: 767px
+   Below iPad Mini width: 1 column projects, hamburger nav.
    ---------------------------------------------------------- */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   :root {
     --space-lg: 2.5rem;
     --space-xl: 4rem;
   }
 
-  /* Header: stack logo and nav vertically (column direction) */
-  .header-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-    height: auto;
-    padding: 8px var(--space-md);
+  /* Show hamburger button */
+  .hamburger {
+    display: flex;
   }
 
-  /* Nav: wrap links into a column */
+  /* Header: keep as row but align items properly */
+  .header-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0;
+    height: 48px;
+    padding: 0 var(--space-md);
+    flex-wrap: nowrap;
+    position: relative;
+  }
+
+  /* Nav: hidden by default, slides down when open */
+  .main-nav {
+    position: absolute;
+    top: 48px;
+    left: 0;
+    right: 0;
+    background: var(--color-title-bar);
+    border-bottom: 1px solid var(--color-border);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    z-index: 105;
+  }
+
+  /* Nav open state — toggled by JS */
+  .main-nav.nav-open {
+    max-height: 300px;
+  }
+
+  /* Nav links: column layout inside the dropdown */
   .main-nav ul {
     flex-direction: column;
     align-items: flex-start;
-    flex-wrap: wrap;
     height: auto;
     gap: 0;
+    padding: 8px 0;
+  }
+
+  .main-nav li {
+    width: 100%;
+    height: auto;
   }
 
   .main-nav a {
-    height: 36px;
-    padding: 0 10px;
+    height: 40px;
+    padding: 0 var(--space-md);
     border-bottom: none;
+    border-left: 3px solid transparent;
+    width: 100%;
+  }
+
+  /* Keep colored left border instead of bottom border on mobile */
+  .nav-home {
+    border-left-color: #61DAFB;
+  }
+
+  .nav-about {
+    border-left-color: #BD93F9;
+  }
+
+  .nav-projects {
+    border-left-color: #DCDCAA;
+  }
+
+  .nav-contact {
+    border-left-color: #50FA7B;
+  }
+
+  .nav-highlight {
+    border-left: 3px solid var(--color-string) !important;
   }
 
   /* Hero: stack content and card vertically */

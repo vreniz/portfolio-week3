@@ -23,7 +23,7 @@
     <div class="header-inner">
       <!-- Logo with back link to portfolio -->
       <div class="logo">
-        <a href="index.html" class="logo-link" aria-label="Back to portfolio">
+        <a href="index.html" class="logo-link" aria-label="Volver al portafolio">
           <span class="logo-initial">VF</span>
           <span class="logo-name">Vanessa Fontalvo</span>
         </a>
@@ -59,13 +59,13 @@
         Three companions that fill my life with joy, chaos and unconditional love.
       </p>
 
-      <!-- Did you know? — show/hide toggle -->
+      <!-- FEATURE 2: botón que muestra/oculta un dato curioso -->
       <button class="btn-toggle-fact" id="btn-toggle-fact"
               aria-expanded="false" aria-controls="fact-panel">
         <span class="btn-icon">▾</span>
-        <span class="btn-text">Did you know?</span>
+        <span class="btn-text">¿Sabías que...?</span>
       </button>
-      <div class="fun-fact-panel" id="fact-panel" role="region" aria-label="Fun fact">
+      <div class="fun-fact-panel" id="fact-panel" role="region" aria-label="Dato curioso">
         <p id="fact-text"></p>
       </div>
     </div>
@@ -107,9 +107,10 @@
                 <li>Curious</li>
                 <li>Moody</li>
               </ul>
-              <button class="pet-like-btn" data-pet="Luna" aria-label="Like Luna">
+              <!-- FEATURE 3: like button -->
+              <button class="pet-like-btn" data-pet="Luna" aria-label="Me gusta Luna">
                 <span class="like-heart">🤍</span>
-                <span class="like-label">Like</span>
+                <span class="like-label">Me gusta</span>
               </button>
             </div>
           </article>
@@ -130,9 +131,9 @@
                 <li>Devoted</li>
                 <li>Mischievous</li>
               </ul>
-              <button class="pet-like-btn" data-pet="Mango" aria-label="Like Mango">
+              <button class="pet-like-btn" data-pet="Mango" aria-label="Me gusta Mango">
                 <span class="like-heart">🤍</span>
-                <span class="like-label">Like</span>
+                <span class="like-label">Me gusta</span>
               </button>
             </div>
           </article>
@@ -153,9 +154,9 @@
                 <li>Explorer</li>
                 <li>Gluttonous</li>
               </ul>
-              <button class="pet-like-btn" data-pet="Perla" aria-label="Like Perla">
+              <button class="pet-like-btn" data-pet="Perla" aria-label="Me gusta Perla">
                 <span class="like-heart">🤍</span>
-                <span class="like-label">Like</span>
+                <span class="like-label">Me gusta</span>
               </button>
             </div>
           </article>
@@ -185,9 +186,9 @@
                 <li>Champion napper</li>
                 <li>Window watcher</li>
               </ul>
-              <button class="pet-like-btn" data-pet="Luna nap" aria-label="Like Luna nap">
+              <button class="pet-like-btn" data-pet="Luna nap" aria-label="Me gusta Luna nap">
                 <span class="like-heart">🤍</span>
-                <span class="like-label">Like</span>
+                <span class="like-label">Me gusta</span>
               </button>
             </div>
           </article>
@@ -206,9 +207,9 @@
                 <li>Ball obsessed</li>
                 <li>Social</li>
               </ul>
-              <button class="pet-like-btn" data-pet="Mango park" aria-label="Like Mango park">
+              <button class="pet-like-btn" data-pet="Mango park" aria-label="Me gusta Mango park">
                 <span class="like-heart">🤍</span>
-                <span class="like-label">Like</span>
+                <span class="like-label">Me gusta</span>
               </button>
             </div>
           </article>
@@ -227,9 +228,9 @@
                 <li>Night owl</li>
                 <li>Garden lover</li>
               </ul>
-              <button class="pet-like-btn" data-pet="Perla explorer" aria-label="Like Perla explorer">
+              <button class="pet-like-btn" data-pet="Perla explorer" aria-label="Me gusta Perla explorer">
                 <span class="like-heart">🤍</span>
-                <span class="like-label">Like</span>
+                <span class="like-label">Me gusta</span>
               </button>
             </div>
           </article>
@@ -272,19 +273,19 @@
   <!-- ===================== FOOTER WITH BACK LINK ===================== -->
   <footer class="site-footer pets-footer">
     <div class="footer-inner">
-      <p class="footer-copy">🐾 Luna, Mango & Perla approve this message.</p>
-      <a href="index.html" class="btn-primary btn-back">
-        <i class='bx bx-arrow-back'></i> View portfolio
-      </a>
+      <p class="footer-copy">🐾 Luna, Mango & Perla aprove this message.</p>
+      <!-- Back link to main portfolio -->
+      <a href="index.html" class="btn-primary btn-back"> <i class='bx bx-arrow-back'></i>
+        View portfolio</a>
     </div>
   </footer>
 
-  <!-- Welcome toast (shown on load by JS) -->
+  <!-- FEATURE 1: elemento del toast de bienvenida (JS lo activa al cargar) -->
   <div class="welcome-toast" id="welcome-toast" role="status" aria-live="polite">
-    🐾 Welcome to my pets page!
+    🐾 ¡Bienvenida a la página de mis mascotas!
   </div>
 
-  <!-- All interactivity is handled in petscript.js -->
+  <!-- script.js — toda la interactividad JS de esta página -->
   <script src="petscript.js"></script>
 
 </body>

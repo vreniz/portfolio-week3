@@ -284,8 +284,102 @@
     🐾 Welcome to my pets page!
   </div>
 
-  <!-- All interactivity is handled in petscript.js -->
-  <script src="petscript.js"></script>
+  <script>
+    // ── 1. WELCOME TOAST ─────────────────────────────────────────
+    // Show a greeting message at the bottom of the screen on load,
+    // then hide it automatically after 3.5 seconds.
+    document.addEventListener('DOMContentLoaded', function () {
+      var toast = document.getElementById('welcome-toast');
+      if (!toast) return;
+      setTimeout(function () { toast.classList.add('toast-visible'); }, 700);
+      setTimeout(function () { toast.classList.remove('toast-visible'); }, 4200);
+    });
+
+    // ── 2. DID YOU KNOW? — SHOW / HIDE PANEL ─────────────────────
+    // Clicking the button toggles a hidden panel open/closed.
+    // Each time it opens, a new fact is displayed and the button
+    // text updates to reflect the current state.
+    document.addEventListener('DOMContentLoaded', function () {
+      var btn   = document.getElementById('btn-toggle-fact');
+      var panel = document.getElementById('fact-panel');
+      var text  = document.getElementById('fact-text');
+      if (!btn || !panel || !text) return;
+
+      var facts = [
+        '🐾 The bond between humans and pets goes back over 15,000 years — dogs were the first domesticated animal.',
+        '🐱 Cats purr at a frequency of 25–150 Hz, which can actually help heal bones and tissue.',
+        '🥭 Golden Retrievers have incredibly gentle mouths — they can carry a raw egg without breaking it.',
+        '🐇 Rabbits communicate through body language: when they leap and twist in the air, they\'re expressing pure joy.'
+      ];
+      var factIndex = -1;
+
+      btn.addEventListener('click', function () {
+        var isOpen = panel.classList.toggle('panel-open');
+        btn.classList.toggle('is-open', isOpen);
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+        if (isOpen) {
+          // Rotate to the next fact using the modulo operator
+          factIndex = (factIndex + 1) % facts.length;
+          text.textContent = facts[factIndex];
+          btn.querySelector('.btn-text').textContent = 'Hide';
+        } else {
+          btn.querySelector('.btn-text').textContent = 'Did you know?';
+        }
+      });
+    });
+
+    // ── 3. LIKE BUTTONS — DYNAMIC CLICK RESPONSE ─────────────────
+    // Each card has its own independent like state.
+    // Clicking toggles between liked / unliked and triggers a CSS
+    // heart bounce animation.
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.pet-like-btn').forEach(function (btn) {
+        var liked = false;
+
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          liked = !liked;
+
+          var heart = btn.querySelector('.like-heart');
+          var label = btn.querySelector('.like-label');
+
+          if (liked) {
+            heart.textContent = '❤️';
+            label.textContent = 'Liked!';
+            btn.classList.add('liked');
+            // Re-trigger the CSS animation by forcing a reflow
+            heart.style.animation = 'none';
+            void heart.offsetWidth;
+            heart.style.animation = '';
+          } else {
+            heart.textContent = '🤍';
+            label.textContent = 'Like';
+            btn.classList.remove('liked');
+          }
+        });
+      });
+    });
+
+    // ── HAMBURGER MENU ────────────────────────────────────────────
+    (function () {
+      var btn = document.getElementById('hamburger');
+      var nav = document.getElementById('main-nav');
+      if (!btn || !nav) return;
+      btn.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('nav-open');
+        btn.classList.toggle('is-open', isOpen);
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+      nav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          nav.classList.remove('nav-open');
+          btn.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+  </script>
 
 </body>
 
