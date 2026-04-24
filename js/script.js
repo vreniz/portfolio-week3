@@ -1,6 +1,6 @@
 /* ============================================================
    script.js — Portfolio interactivity
-   Semana 3: JavaScript basics — DOM manipulation
+   week 3: JavaScript basics — DOM manipulation
    ============================================================ */
 
 /* ----------------------------------------------------------

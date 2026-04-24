@@ -188,8 +188,7 @@ document.addEventListener('DOMContentLoaded', function () {
 /* ============================================================
    HAMBURGER MENU
    Controls opening and closing the mobile navigation menu.
-   Previously this lived inline in the HTML — centralising it
-   here keeps all JS logic in a single file.
+
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', function () {

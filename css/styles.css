@@ -285,23 +285,23 @@ em {
 
 /* My Pets — rosa siempre */
 .nav-highlight {
-  color: var(--color-string) !important;
-  border-bottom: 2px solid var(--color-string) !important;
-  font-weight: 500 !important;
-  background: transparent !important;
-  transition: background 0.2s ease, border-bottom-width 0.15s ease !important;
+  color: var(--color-string);
+  border-bottom: 2px solid var(--color-string);
+  font-weight: 500;
+  background: transparent;
+  transition: background 0.2s ease, border-bottom-width 0.15s ease;
 }
 
 .nav-highlight:hover {
-  background: rgba(255, 121, 198, 0.08) !important;
+  background: rgba(255, 121, 198, 0.08);
 }
 
 .nav-highlight:active {
-  border-bottom-width: 3px !important;
+  border-bottom-width: 3px;
 }
 
 .nav-back {
-  color: var(--color-type) !important;
+  color: var(--color-type);
 }
 
 .main-nav ion-icon {
@@ -335,9 +335,9 @@ em {
 }
 
 #hero-particles canvas {
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
+  display: block;
+  width: 100%;
+  height: 100%;
   pointer-events: all;
 }
 
@@ -803,68 +803,9 @@ em {
 /* ============================================================
    PETS PAGE HERO
    ============================================================ */
-.pets-hero {
-  background: linear-gradient(135deg, #1a3a2a 0%, #0d2018 100%);
-  color: white;
-  padding: var(--space-xl) var(--space-md);
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.pets-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle, rgba(78, 201, 176, 0.06) 1px, transparent 1px);
-  background-size: 32px 32px;
-  pointer-events: none;
-}
-
-.pets-hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 600px;
-  animation: fadeUp 0.8s ease both;
-}
-
-.pets-hero .hero-label {
-  background: rgba(80, 250, 123, 0.1);
-  color: var(--color-type);
-  border-radius: var(--radius-sm);
-  padding: 4px 10px;
-}
-
-.pets-hero-title {
-  color: white;
-}
-
-.pets-hero-title em {
-  color: var(--color-type);
-}
-
-.pets-hero .hero-sub {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.paw-deco {
-  position: absolute;
-  bottom: var(--space-sm);
-  right: var(--space-md);
-  font-size: 1.8rem;
-  opacity: 0.15;
-  display: flex;
-  gap: var(--space-xs);
-  transform: rotate(-15deg);
-  pointer-events: none;
-}
 
 /* ============================================================
-   BOTONES
+   Buttons — base styles for all buttons, then modifiers for primary, submit, back.
    ============================================================ */
 .btn-primary {
   display: inline-block;
@@ -1040,7 +981,7 @@ em {
   font-weight: 600;
 }
 
-/* Cursor de Typed.js */
+/* Typed.js cursor */
 .typed-cursor {
   color: var(--color-string);
   font-size: 1.1rem;
@@ -1060,12 +1001,12 @@ em {
   }
 }
 
-/* Clases de color para palabras destacadas — estilo syntax highlighting */
+/* Color class for keywords —  syntax style highlighting */
 .t-blue {
   color: #61DAFB;
 }
 
-/* tipo / clase */
+/* type / class */
 .t-pink {
   color: #FF79C6;
 }
@@ -1075,12 +1016,12 @@ em {
   color: #DCDCAA;
 }
 
-/* función */
+/* function */
 .t-orange {
   color: #FFB86C;
 }
 
-/* atributo */
+/* attribute */
 .t-green {
   color: #50FA7B;
 }
@@ -1123,7 +1064,6 @@ em {
   flex-direction: column;
   align-items: flex-start;
   gap: 6px;
-  /* Negative margin removed — grid column handles spacing */
   flex-shrink: 0;
 }
 
@@ -1183,7 +1123,7 @@ em {
   transform: scale(1.04);
 }
 
-/* Línea de acento morado en el borde inferior */
+/* purple accent line in the bottom border */
 .about-image-frame::after {
   content: '';
   position: absolute;
@@ -1236,7 +1176,7 @@ em {
   background: var(--color-surface);
 }
 
-/* Barra de título de la "ventana" */
+/* window bar title */
 .project-card::before {
   content: '';
   display: block;
@@ -1245,7 +1185,7 @@ em {
   border-bottom: 1px solid var(--color-border);
 }
 
-/* Dots de ventana */
+/* window dots */
 .project-card::after {
   content: '●  ●  ●';
   position: absolute;
@@ -1281,7 +1221,7 @@ em {
   flex-direction: column;
 }
 
-/* Líneas de número estilo editor */
+/* Line numbers —  code area style (below image + title bar) */
 .project-front {
   background: var(--color-surface);
   padding: 0;
@@ -1315,7 +1255,7 @@ em {
   letter-spacing: 0.2em;
 }
 
-/* El code-block ocupa el resto, mantiene su padding original con los números */
+/* the code-block ocupies the rest, maintaining its original padding with the numbers */
 .project-front .project-code-block-wrap {
   flex: 1;
   position: relative;
@@ -1332,7 +1272,7 @@ em {
   justify-content: space-between;
 }
 
-/* Número de línea — cubre solo la zona del código (debajo de imagen + barra de título) */
+/* Line numbers — cover only the code area (below image + title bar) */
 .project-number {
   position: absolute;
   left: 0;
@@ -1379,7 +1319,7 @@ em {
   }
 }
 
-/* Código en la cara frontal */
+/* Code on the front face */
 .project-code-block {
   font-family: var(--font-mono);
   font-size: 0.82rem;
@@ -1409,7 +1349,7 @@ em {
   padding-bottom: 1px;
 }
 
-/* Back face — info del proyecto */
+/* Back face — project info*/
 .project-info {
   display: flex;
   flex-direction: column;
@@ -1471,7 +1411,7 @@ em {
    SECTION: CONTACT
    ============================================================ */
 .section-contact {
-  background: rgba(37, 37, 38, 0.3) !important;
+  background: rgba(37, 37, 38, 0.3);
 }
 
 .section-contact .section-tag {
@@ -1701,10 +1641,10 @@ em {
 }
 
 /* ----------------------------------------------------------
-   MOBILE — max-width: 767px
+   MOBILE — max-width: 768px
    Below iPad Mini width: 1 column projects, hamburger nav.
    ---------------------------------------------------------- */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   :root {
     --space-lg: 2.5rem;
     --space-xl: 4rem;
@@ -1786,7 +1726,7 @@ em {
   }
 
   .nav-highlight {
-    border-left: 3px solid var(--color-string) !important;
+    border-left: 3px solid var(--color-string);
   }
 
   /* Hero: stack content and card vertically */
@@ -1844,6 +1784,7 @@ em {
   }
 }
 
+
 /* ----------------------------------------------------------
    SMALL MOBILE — max-width: 480px
    All grids: 1 column
@@ -1862,4 +1803,6 @@ em {
   .project-card {
     min-height: 280px;
   }
+   
+  
 }
