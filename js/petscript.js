@@ -9,26 +9,12 @@
      2. SHOW / HIDE     — a button reveals or hides a fun fact panel
      3. LIKE BUTTONS    — buttons respond with a dynamic visual effect
 
-   How the HTML ↔ JS connection works:
-     document.getElementById('id')             → select one element by its id
-     document.querySelectorAll('.class')       → select all matching elements
-     element.classList.add / remove / toggle   → add or remove CSS classes
-     element.textContent = '...'              → change the visible text
-     element.addEventListener('click', fn)     → listen for user clicks
-     setTimeout(fn, milliseconds)             → run something after a delay
-   ============================================================ */
-
 
 /* ============================================================
    FEATURE 1 — WELCOME TOAST
    What it does: when the page finishes loading, a green pill
    slides up from the bottom with a greeting message, then
    disappears automatically after 3.5 seconds.
-
-   JS concepts used:
-     · document.getElementById()  — select a DOM element by id
-     · classList.add / remove     — activate / deactivate a CSS class
-     · setTimeout(fn, ms)         — execute code after X milliseconds
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -61,12 +47,6 @@ document.addEventListener('DOMContentLoaded', function () {
    panel with a fun fact. Each time it opens, the fact rotates
    to the next one. The button text also updates to match the
    current state.
-
-   JS concepts used:
-     · classList.toggle()          — adds the class if absent, removes if present
-     · element.textContent = '...' — replaces the visible text of an element
-     · setAttribute()              — updates HTML attributes (e.g. aria-expanded)
-     · Arrays and the % operator   — to cycle through a list of facts
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -126,13 +106,6 @@ document.addEventListener('DOMContentLoaded', function () {
    changes the icon to a red heart, updates the label to "Liked!",
    and applies a colour change with a bounce animation. A second
    click removes the like and resets everything to its original state.
-
-   JS concepts used:
-     · querySelectorAll()      — select multiple elements at once
-     · forEach()               — iterate over a list of elements
-     · Boolean variables       — store state (liked: true / false)
-     · e.stopPropagation()     — prevent the click from bubbling to the parent
-     · void element.offsetWidth — force a reflow to restart CSS animations
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', function () {
