@@ -177,7 +177,7 @@ All external dependencies load via CDN — no `npm install` or build step requir
 
 ---
 
-## 👩‍💻 Author
+## 👩🏻‍💻 Author
 
 **Vanessa Fontalvo Reniz**
 Systems and Computing Engineer | Frontend Developer
