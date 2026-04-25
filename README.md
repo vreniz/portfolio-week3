@@ -1,6 +1,6 @@
 # 🌸 Personal Portfolio — Vanessa Fontalvo
 
-> *"Design & Development with purpose."*
+> *"Live at: https://vreniz.github.io/portfolio-week3/"*
 
 ---
 
@@ -179,7 +179,7 @@ All external dependencies load via CDN — no `npm install` or build step requir
 
 ## 👩🏻‍💻 Author
 
-**Vanessa Fontalvo Reniz**
+**Vanessa Fontalvo Reniz**. 
 Systems and Computing Engineer | Frontend Developer
 
 🐙 GitHub: [@vreniz](https://github.com/vreniz)
