@@ -349,9 +349,6 @@ em {
 
 /* ============================================================
    HERO SECTION
-   ============================================================ */
-/* ============================================================
-   HERO SECTION
    Layout: Flexbox — two columns (content + card)
    On large screens: constrained width, centered, balanced gap
    ============================================================ */
@@ -892,9 +889,7 @@ em {
   color: var(--color-function);
 }
 
-/* ============================================================
-   SECTION: ABOUT ME
-   ============================================================ */
+
 /* ============================================================
    SECTION: ABOUT ME
    Layout: CSS Grid — two columns (terminal + photo)
@@ -1140,12 +1135,6 @@ em {
    grid-template-columns: repeat(4, 1fr) creates 4 equal columns.
    gap provides visual separation between project cards.
    Responsive: reduces to 2 cols at 768px, 1 col at 480px.
-   ============================================================ */
-/* ============================================================
-   SECTION: PROJECTS — CSS Grid Layout
-   grid-template-columns: 4 equal columns on large screens,
-   auto-fills to fewer columns on smaller screens via repeat().
-   gap creates visual separation between cards.
    ============================================================ */
 .projects-list {
   display: grid;
@@ -1486,9 +1475,6 @@ em {
   box-shadow: 0 0 0 2px rgba(124, 106, 247, 0.15);
 }
 
-/* ============================================================
-   SECTION: PETS GALLERY
-   ============================================================ */
 
 /* ============================================================
    FOOTER

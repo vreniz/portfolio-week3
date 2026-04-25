@@ -667,11 +667,7 @@ em {
 }
 
 /* ============================================================
-   HAMBURGER BUTTON — base styles (hidden on desktop/tablet)
-   Moved here intentionally: the base rule (display: none) must
-   come BEFORE the @media block that overrides it to display: flex.
-   If it appears after, the media query rule gets overridden and
-   the button never shows on mobile.
+   HAMBURGER BUTTON 
    ============================================================ */
 .hamburger {
     display: none;
